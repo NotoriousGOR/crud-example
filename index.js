@@ -21,8 +21,8 @@ app.get("/", (req, res) => {
 });
 
 // Handle GET requests to fetch products, with optional query parameter for product ID
-app.get("/api/products", (req, res) => {
-  const productId = req.query.id;
+app.get("/api/products/:id", (req, res) => {
+  const productId = req.params.id;
   console.log(productId);
 
   if (productId) {
