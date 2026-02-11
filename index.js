@@ -40,7 +40,7 @@ app.get("/api/products", (req, res) => {
         condition: "new",
         ageGroup: "adult",
         color: "Blue",
-        imageLink: "http://www.tailspintoys.com",
+        imageLink: "http://www.somebrand.com",
       },
     });
   }
@@ -61,7 +61,7 @@ app.get("/api/products", (req, res) => {
         condition: "new",
         ageGroup: "adult",
         color: "Blue",
-        imageLink: "http://www.tailspintoys.com",
+        imageLink: "http://www.somebrand.com",
       },
       {
         id: "2",
@@ -76,7 +76,7 @@ app.get("/api/products", (req, res) => {
         condition: "new",
         ageGroup: "adult",
         color: "White",
-        imageLink: "http://www.tailspintoys.com/sneakers",
+        imageLink: "http://www.somebrand.com/sneakers",
       },
     ],
   });
