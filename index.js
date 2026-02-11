@@ -20,8 +20,8 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Product API!");
 });
 
-// Handle GET requests to fetch products, with optional query parameter for product ID
-app.get("/api/products/:id", (req, res) => {
+// Handle GET requests to fetch products, with optional parameter for product ID
+app.get("/api/products{/:id}", (req, res) => {
   const productId = req.params.id;
   console.log(productId);
 
