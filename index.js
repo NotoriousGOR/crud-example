@@ -1,11 +1,20 @@
+// This is a simple Express server that provides a RESTful API for managing products.
+// It includes routes for fetching products, creating new products, and updating existing products.
+// The server listens on port 3000 and returns JSON responses.
+// The code also includes error handling for unsupported HTTP methods and missing routes.
+
 import express from "express";
+
+// body-parser is a middleware that parses incoming request bodies in a middleware before your handlers, available under the req.body property.
 import bodyParser from "body-parser";
 
-// init express module
+// initialize the Express application
 const app = express();
+
+// define the port number for the server to listen on
 const PORT = 3000;
 
-// returns JSON and only allows JSON Content-Types
+// use body-parser middleware to parse JSON request bodies where the Content-Type header is application/json
 app.use(bodyParser.json());
 
 // start the server
@@ -14,8 +23,9 @@ app.listen(PORT, () =>
   console.log(`Server running on port: http://localhost:${PORT}`),
 );
 
-// ROUTES
+// *** ROUTES ***
 
+// Handle GET requests to the root URL
 app.get("/", (req, res) => {
   res.send("Welcome to the Product API!");
 });
@@ -85,20 +95,22 @@ app.get("/api/products{/:id}", (req, res) => {
 // handle POST requests to create a new product
 app.post("/api/products", (req, res) => {
   const postData = req.body;
+  // Usually, you would save the new product to a database here.
+  // For demonstration purposes, we'll just log the received data and return it in the response.
   console.log("Received body:", postData);
 
   return res.json({ returnedData: postData });
 });
 
 // handle PUT requests to update a product (for demonstration purposes, this just echoes back the data)
-app.put("/api/products", (req, res) => {
+app.put("/api/products/:id", (req, res) => {
   const putData = req.body;
   console.log("Received body:", putData);
 
   return res.json({ returnedData: putData });
 });
 
-// DEMO: Live Code DELETE route for /api/products
+// DEMO: Live Code DELETE route for /api/products:id
 
 // handle unsupported HTTP methods for /api/products
 app.all("/api/products", (req, res) => {
