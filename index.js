@@ -115,6 +115,17 @@ app.put("/api/products/:id", (req, res) => {
 });
 
 // DEMO: Live Code DELETE route for /api/products:id
+app.delete("/api/products/:id", (req, res) => {
+  const productID = req.params.id;
+  console.log(`Received request to delete product with ID: ${productID}`);
+
+  // In a real application, you would delete the product from the database here.
+
+  // For demonstration purposes, we'll just return a success message.
+  return res.json({
+    message: `Product with ID ${productID} has been deleted (not really, this is just a demo).`,
+  });
+});
 
 // handle unsupported HTTP methods for /api/products
 app.all("/api/products", (req, res) => {
