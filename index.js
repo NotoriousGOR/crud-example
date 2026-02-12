@@ -23,7 +23,11 @@ app.listen(PORT, () =>
   console.log(`Server running on port: http://localhost:${PORT}`),
 );
 
-// *** ROUTES ***
+/* 
+
+  *** ROUTES *** 
+
+*/
 
 // Handle GET requests to the root URL
 app.get("/", (req, res) => {
